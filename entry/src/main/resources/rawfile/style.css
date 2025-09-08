@@ -1,0 +1,64 @@
+
+*{box-sizing:border-box;}
+body{
+    font-family: Arial, sans-serif;
+    margin: 10% 10%;
+    background: #f4f6f8;
+    color: #333;
+
+}
+.info{
+    text-align: center;
+    font-size:32px;
+}
+h2{
+    font-size:46px;
+    text-align: center;
+    margin: 8px 0 16px}
+.card{
+    width:100%;
+    height:100%;
+    background: #fff;
+border-radius: 32px;
+padding: 32px;
+margin-bottom: 14px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.row{
+display:flex;
+gap:12px;
+align-items:center;
+    font-size:26px;
+    justify-content: space-between;
+}
+.grow{
+flex:1;
+}
+.metric{
+font-size:22px !important;
+color: #666;
+margin: 2px 0;
+    flex-shrink:0;
+    line-height:1.4 !important;
+    word-break: break-word;
+}
+#runs{
+    margin: 0 10%;
+}
+.svgwrap{
+background:#fff;
+border:1px solid #e6e6e6;
+border-radius:32px;
+padding:6px;
+}
+svg{
+width:100% !important;
+height:200px !important;
+display:block;
+}
+.pill{
+font-size:26px;
+padding:4px 8px;
+background:#eef2ff;
+border-radius:999px;
+}

@@ -1,0 +1,14 @@
+{
+  "devices": {
+    "general": [
+      "wearable"
+    ]
+  },
+  "development": {
+    "addedSysCaps": [
+      "SystemCapability.Notification.ReminderAgent",
+      "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
+      "SystemCapability.Location.Location.Core"
+    ]
+  }
+}

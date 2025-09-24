@@ -37,7 +37,7 @@ export default class EntryAbility extends UIAbility {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [
         {
-          bundleName: "com.example.movetrackerapp",
+          bundleName: "com.hmosdemos.movetrackerapp",
           abilityName: "EntryAbility"
         }
       ],

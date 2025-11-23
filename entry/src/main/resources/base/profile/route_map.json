@@ -1,0 +1,20 @@
+{
+  "routerMap": [
+    {
+      "name": "dashboardPage",
+      "pageSourceFile": "src/main/ets/pages/DashboardPage.ets",
+      "buildFunction": "DashboardPageBuilder",
+      "data": {
+        "description": "this is dashboard page"
+      }
+    },
+    {
+      "name": "historyPage",
+      "pageSourceFile": "src/main/ets/pages/HistoryPage.ets",
+      "buildFunction": "HistoryPageBuilder",
+      "data": {
+        "description": "this is history page"
+      }
+    }
+  ]
+}

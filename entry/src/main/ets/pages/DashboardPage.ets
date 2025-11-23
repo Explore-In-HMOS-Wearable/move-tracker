@@ -1,10 +1,14 @@
 import webview from '@ohos.web.webview';
 import { ActivityStore } from '../data/ActivityStore';
 
-@Entry
+@Builder
+export function DashboardPageBuilder() {
+  DashboardPage()
+}
 @Component
 
-struct DashboardPage{
+export struct DashboardPage{
+  pathStack: NavPathStack = new NavPathStack()
   private controller: webview.WebviewController = new webview.WebviewController();
   onPageEndSendData(){
     const records = ActivityStore.getRecords();
@@ -12,6 +16,7 @@ struct DashboardPage{
     this.controller.runJavaScript(`updateRuns(${json})`);
   }
   build(){
+    NavDestination(){
     Column(){
       Web({
         src: $rawfile('dashboard.html'),
@@ -28,4 +33,9 @@ struct DashboardPage{
     .width('100%')
     .height('100%')
   }
+  .hideBackButton(true)
+  .onReady((context: NavDestinationContext) => {
+  this.pathStack = context.pathStack
+})
+}
 }

@@ -1,33 +1,46 @@
 function computeBounds(points) {
-    let minLat= 90, maxLat= -90, minLon= 180, maxLon= -180;
+    let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
     points.forEach(p => {
-        if(p.lat < minLat) minLat = p.lat;
-        if(p.lat > maxLat) maxLat = p.lat;
-        if(p.lon < minLon) minLon = p.lon;
-        if(p.lon > maxLon) maxLon = p.lon;
+        if (p.lat < minLat) {
+            minLat = p.lat;
+        }
+        if (p.lat > maxLat) {
+            maxLat = p.lat;
+        }
+        if (p.lon < minLon) {
+            minLon = p.lon;
+        }
+        if (p.lon > maxLon) {
+            maxLon = p.lon;
+        }
     });
-    if(minLat === maxLat){
+    if (minLat === maxLat) {
         minLat -= 0.0001;
         maxLat += 0.0001;
     }
-    if(minLon === maxLon) {
+    if (minLon === maxLon) {
         minLon -= 0.0001;
         maxLon += 0.0001;
     }
-    return { minLat, maxLat, minLon, maxLon};
+    return {
+        minLat,
+        maxLat,
+        minLon,
+        maxLon
+    };
 }
 
-function latLonToXY(lat,lon,bounds,width,height) {
-    const {minLat, maxLat, minLon, maxLon} = bounds;
-    const x = ((lon-minLon) / (maxLon-minLon)) * width;
+function latLonToXY(lat, lon, bounds, width, height) {
+    const { minLat, maxLat, minLon, maxLon } = bounds;
+    const x = ((lon - minLon) / (maxLon - minLon)) * width;
     const y = height - ((lat - minLat) / (maxLat - minLat)) * height;
-    return {x,y};
+    return { x, y };
 }
 
 function buildPolyline(points, width, height) {
     const bounds = computeBounds(points);
     const path = points.map(p => {
-        const {x,y} = latLonToXY(p.lat, p.lon, bounds, width, height);
+        const { x, y } = latLonToXY(p.lat, p.lon, bounds, width, height);
         return `${x.toFixed(1)},${y.toFixed(1)}`;
     }).join(' ');
     return { bounds, path };
@@ -36,8 +49,8 @@ function buildPolyline(points, width, height) {
 function updateRuns(records) {
     const host = document.getElementById('runs');
     host.innerHTML = '';
-    if(!records || records.length === 0){
-        host.innerHTML = '<p class="info">No activities yet.</p>';
+    if (!records || records.length === 0) {
+        host.innerHTML = `<p class='info'>No activities yet.</p>`;
         return;
     }
     records.forEach((r, idx) => {
@@ -58,9 +71,9 @@ function updateRuns(records) {
         card.appendChild(header);
         const metrics = document.createElement('div');
         metrics.innerHTML = `
-           <div class="metric"> Avg Speed: ${avgKmh} km/h</div>
-           <div class="metric"> Duration: ${mins}</div>
-           <div class="metric"> Points: ${pts.length}</div>
+           <div class='metric'> Avg Speed: ${avgKmh} km/h</div>
+           <div class='metric'> Duration: ${mins}</div>
+           <div class='metric'> Points: ${pts.length}</div>
            `;
         card.appendChild(metrics);
         const svgWrap = document.createElement('div');
@@ -68,8 +81,8 @@ function updateRuns(records) {
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('viewBox', '0 0 400 200');
         svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-        if(pts.length > 0){
-            const {path} = buildPolyline(pts, 400, 200);
+        if (pts.length > 0) {
+            const { path } = buildPolyline(pts, 400, 200);
             const polyLine = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
             polyLine.setAttribute('points', path);
             polyLine.setAttribute('fill', 'none');
@@ -95,8 +108,7 @@ function updateRuns(records) {
             svg.appendChild(start);
             svg.appendChild(end);
 
-        }
-        else{
+        } else {
             const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             t.textContent = 'No GPS points yet';
             t.setAttribute('x', '12');
@@ -109,4 +121,5 @@ function updateRuns(records) {
         host.appendChild(card);
     })
 }
+
 window.updateRuns = updateRuns;

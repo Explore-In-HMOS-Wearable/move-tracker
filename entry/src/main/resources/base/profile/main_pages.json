@@ -1,7 +1,5 @@
 {
   "src": [
-    "pages/MainPage",
-    "pages/HistoryPage",
-    "pages/DashboardPage"
+    "pages/MainPage"
   ]
 }

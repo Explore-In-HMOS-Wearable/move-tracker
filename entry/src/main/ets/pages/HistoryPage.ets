@@ -2,11 +2,15 @@ import { ActivityRecord, ActivityStore } from '../data/ActivityStore';
 import { ArcList, ArcListItem, ArcListAttribute } from '@ohos.arkui.ArcList';
 import { LengthMetrics } from '@kit.ArkUI';
 
-@Entry
+@Builder
+export function HistoryPageBuilder() {
+  HistoryPage()
+}
 @Component
-
-struct HistoryPage {
+export struct HistoryPage {
+  pathStack: NavPathStack = new NavPathStack()
   build(){
+    NavDestination(){
     Column(){
       Text('Activities')
         .fontSize(18)
@@ -38,5 +42,10 @@ struct HistoryPage {
     .width('100%')
     .height('100%')
 
+  }
+    .hideBackButton(true)
+    .onReady((context: NavDestinationContext) => {
+      this.pathStack = context.pathStack
+    })
   }
 }

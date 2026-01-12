@@ -21,7 +21,9 @@ export class BackgroundTaskService {
     }
   }
   static async stop(context: common.Context){
-    if(!BackgroundTaskService.isRunning) return;
+    if(!BackgroundTaskService.isRunning) {
+      return;
+    }
     try{
       await backgroundTaskManager.stopBackgroundRunning(context);
       BackgroundTaskService.isRunning = false;

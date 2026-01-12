@@ -6,12 +6,12 @@ MoveTracker is an activity tracking application.It records walking, running or c
 # Preview
 
 <div>
-  <img src="screenshots/1.png" width="25%">
-  <img src="screenshots/2.png" width="25%">
-  <img src="screenshots/3.png" width="25%">
+  <img src="screenshots/1.png" width="24%">
+  <img src="screenshots/2.png" width="24%">
+  <img src="screenshots/3.png" width="24%">
 </div>
 
-# Features
+# Use Cases
 
 - Real-time location tracking
 - Background task for continuous tracking when the app is minimized

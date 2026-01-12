@@ -65,7 +65,7 @@ function updateRuns(records) {
         const title = document.createElement('div');
         title.innerHTML = `<strong>Activity #${records.length - idx}</strong>`;
         const tags = document.createElement('div');
-        tags.innerHTML = `<span class="pill">${distKm} km</span>`;
+        tags.innerHTML = `<span class='pill'>${distKm} km</span>`;
         header.appendChild(title);
         header.appendChild(tags);
         card.appendChild(header);

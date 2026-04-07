@@ -18,16 +18,16 @@ struct DashboardPage{
         .onClick(() => {
           router.back()
         })
-        .width('76%')
+        .width('45%')
         .height(32)
         .backgroundColor('#ff353535')
-        .borderRadius(12)
+        .borderRadius(16)
         .margin({ top: 10, bottom: 5 })
 
       Web({
         src: $rawfile('dashboard.html'),
         controller: this.controller
-      }).borderRadius('50%')
+      })
         .width('100%')
         .layoutWeight(1)
         .onPageEnd(() =>{
@@ -38,5 +38,8 @@ struct DashboardPage{
     .justifyContent(FlexAlign.Center)
     .width('100%')
     .height('100%')
+    .borderRadius('50%')
+    .backgroundColor(Color.White)
+    .clip(true)
   }
 }

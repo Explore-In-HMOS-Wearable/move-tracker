@@ -1,5 +1,6 @@
 import webview from '@ohos.web.webview';
 import { ActivityStore } from '../data/ActivityStore';
+import router from '@ohos.router';
 
 @Entry
 @Component
@@ -13,12 +14,22 @@ struct DashboardPage{
   }
   build(){
     Column(){
+      Button('Back')
+        .onClick(() => {
+          router.back()
+        })
+        .width('76%')
+        .height(32)
+        .backgroundColor('#ff353535')
+        .borderRadius(12)
+        .margin({ top: 10, bottom: 5 })
+
       Web({
         src: $rawfile('dashboard.html'),
         controller: this.controller
       }).borderRadius('50%')
         .width('100%')
-        .height('100%')
+        .layoutWeight(1)
         .onPageEnd(() =>{
           this.onPageEndSendData()
         })

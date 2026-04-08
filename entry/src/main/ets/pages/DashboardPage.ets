@@ -33,6 +33,33 @@ struct DashboardPage{
         .onPageEnd(() =>{
           this.onPageEndSendData()
         })
+        .onControllerAttached(() => {
+          this.controller.registerJavaScriptProxy(
+            {
+              deleteActivity: (id: string) => {
+                AlertDialog.show({
+                  title: 'Delete Activity',
+                  message: 'Are you sure you want to delete this activity?',
+                  primaryButton: {
+                    value: 'No',
+                    action: () => {
+                    }
+                  },
+                  secondaryButton: {
+                    value: 'Yes',
+                    fontColor: Color.Red,
+                    action: () => {
+                      ActivityStore.deleteRecord(id);
+                      this.onPageEndSendData();
+                    }
+                  }
+                })
+              }
+            },
+            "jsBridge",
+            ["deleteActivity"]
+          );
+        })
 
     }
     .justifyContent(FlexAlign.Center)

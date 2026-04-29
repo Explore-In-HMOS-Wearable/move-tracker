@@ -2,8 +2,6 @@ import router from '@ohos.router';
 import { BackgroundTaskService } from '../services/BackgroundTaskService';
 import { common } from '@kit.AbilityKit';
 
-
-
 @Entry
 @Component
 struct MainPage {

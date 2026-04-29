@@ -1,5 +1,3 @@
-> **Note:** To access all shared projects, get information about environment setup, and view other guides, please visit [Explore-In-HMOS-Wearable Index](https://github.com/Explore-In-HMOS-Wearable/hmos-index).
-
 # Move Tracker App
 
 MoveTracker is an activity tracking application.It records walking, running or cycling sessions, draws the route and shows summary statistics.
@@ -11,7 +9,7 @@ MoveTracker is an activity tracking application.It records walking, running or c
   <img src="screenshots/3.png" width="25%">
 </div>
 
-# Features
+# Use Cases
 
 - Real-time location tracking
 - Background task for continuous tracking when the app is minimized

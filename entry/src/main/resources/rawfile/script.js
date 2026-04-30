@@ -106,6 +106,22 @@ function updateRuns(records) {
         }
         svgWrap.appendChild(svg);
         card.appendChild(svgWrap);
+
+        let pressTimer;
+        card.addEventListener('touchstart', (e) => {
+            pressTimer = setTimeout(() => {
+                if (window.jsBridge && window.jsBridge.deleteActivity) {
+                    window.jsBridge.deleteActivity(r.id);
+                }
+            }, 1000);
+        });
+        card.addEventListener('touchend', (e) => {
+            clearTimeout(pressTimer);
+        });
+        card.addEventListener('touchmove', (e) => {
+            clearTimeout(pressTimer);
+        });
+
         host.appendChild(card);
     })
 }

@@ -9,7 +9,6 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { wantAgent, WantAgent } from '@kit.AbilityKit';
 import { notificationManager } from '@kit.NotificationKit';
 
-
 const DOMAIN = 0x0000;
 const permissions: Array<Permissions> = ['ohos.permission.LOCATION','ohos.permission.APPROXIMATELY_LOCATION'];
 // Use UIExtensionAbility: Replace common.UIAbilityContext with common.UIExtensionContext.

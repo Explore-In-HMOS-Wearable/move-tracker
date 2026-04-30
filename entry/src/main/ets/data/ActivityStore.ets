@@ -35,5 +35,8 @@ export class ActivityStore{
   static latest(): ActivityRecord | null {
     return ActivityStore.activities.length > 0 ? ActivityStore.activities[0] : null;
   }
+  static deleteRecord(id: string): void {
+    ActivityStore.activities = ActivityStore.activities.filter(r => r.id !== id);
+  }
 
 }

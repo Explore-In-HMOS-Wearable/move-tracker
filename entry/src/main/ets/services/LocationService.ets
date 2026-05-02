@@ -24,7 +24,7 @@ export async function startTracking(intervalMs: number = 5000) {
   let request: geoLocationManager.ContinuousLocationRequest =
     { 'interval': 1, 'locationScenario': geoLocationManager.UserActivityScenario.NAVIGATION };
   let locationCallback = (location: geoLocationManager.Location): void => {
-    console.info(JSON.stringify(location));
+    console.info(`locationCallback: data: ${JSON.stringify(location)}`);
     const point: ActivityPoint = {
       lat: location.latitude,
       lon: location.longitude,
@@ -44,7 +44,7 @@ export async function startTracking(intervalMs: number = 5000) {
   try {
     geoLocationManager.on('locationChange', request, locationCallback);
   } catch (err) {
-    console.error(err);
+    console.error(`errCode: ${err.code}, message: ${err.message}`);
   }
 
 }

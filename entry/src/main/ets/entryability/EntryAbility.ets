@@ -13,13 +13,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { wantAgent, WantAgent } from '@kit.AbilityKit';
 import { notificationManager } from '@kit.NotificationKit';
 
-
 const DOMAIN = 0x0000;
 const permissions: Array<Permissions> = ['ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION'];
 
 // Use UIExtensionAbility: Replace common.UIAbilityContext with common.UIExtensionContext.
 function reqPermissionsFromUser(permissions: Array<Permissions>, context: common.UIAbilityContext): void {
   let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager();
+  // The return value of requestPermissionsFromUser determines whether to display a dialog box to request
+  // user authorization.
   atManager.requestPermissionsFromUser(context, permissions).then((data) => {
     let grantStatus: Array<number> = data.authResults;
     let length: number = grantStatus.length;
@@ -27,6 +28,8 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
       if (grantStatus[i] === 0) {
         // If the user grants the permission, the application continues the operation.
       } else {
+        // If the user denies the permission, a message is displayed, indicating that user authorization is required
+        // and instructing the user to set the permission in Settings.
         return;
       }
     }

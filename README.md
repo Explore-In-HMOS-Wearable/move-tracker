@@ -1,14 +1,12 @@
-> **Note:** To access all shared projects, get information about environment setup, and view other guides, please visit [Explore-In-HMOS-Wearable Index](https://github.com/Explore-In-HMOS-Wearable/hmos-index).
-
 # Move Tracker App
 
 MoveTracker is an activity tracking application.It records walking, running or cycling sessions, draws the route and shows summary statistics.
 # Preview
 
 <div>
-  <img src="screenshots/1.png" width="24%">
-  <img src="screenshots/2.png" width="24%">
-  <img src="screenshots/3.png" width="24%">
+  <img src="screenshots/1.png" width="25%">
+  <img src="screenshots/2.png" width="25%">
+  <img src="screenshots/3.png" width="25%">
 </div>
 
 # Use Cases

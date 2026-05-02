@@ -1,6 +1,5 @@
 {
   "module": {
-    "routerMap": "$profile:route_map",
     "name": "entry",
     "type": "entry",
     "description": "$string:module_desc",
@@ -10,30 +9,32 @@
     ],
     "requestPermissions": [
       {
-        "name" : "ohos.permission.KEEP_BACKGROUND_RUNNING",
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
         "reason": "$string:reason",
         "usedScene": {
           "abilities": [
             "FormAbility"
           ],
-          "when":"inuse"
+          "when": "inuse"
         }
       },
       {
-        "name" : "ohos.permission.PUBLISH_AGENT_REMINDER",
+        "name": "ohos.permission.PUBLISH_AGENT_REMINDER",
         "reason": "$string:reason",
         "usedScene": {
           "abilities": [
             "FormAbility"
           ],
-          "when":"inuse"
+          "when": "inuse"
         }
       },
       {
         "name": "ohos.permission.LOCATION",
         "reason": "$string:location_permission_reason",
         "usedScene": {
-          "abilities": ["EntryAbility"],
+          "abilities": [
+            "EntryAbility"
+          ],
           "when": "inuse"
         }
       },
@@ -41,7 +42,9 @@
         "name": "ohos.permission.APPROXIMATELY_LOCATION",
         "reason": "$string:location_permission_reason",
         "usedScene": {
-          "abilities": ["EntryAbility"],
+          "abilities": [
+            "EntryAbility"
+          ],
           "when": "inuse"
         }
       }
@@ -87,6 +90,7 @@
           }
         ],
       }
-    ]
+    ],
+    "routerMap": "$profile:route_map"
   }
 }

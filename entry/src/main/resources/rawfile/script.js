@@ -50,7 +50,7 @@ function updateRuns(records) {
     const host = document.getElementById('runs');
     host.innerHTML = '';
     if (!records || records.length === 0) {
-        host.innerHTML = `<p class='info'>No activities yet.</p>`;
+        host.innerHTML = '<p class="info">No activities yet.</p>';
         return;
     }
     records.forEach((r, idx) => {
@@ -65,15 +65,15 @@ function updateRuns(records) {
         const title = document.createElement('div');
         title.innerHTML = `<strong>Activity #${records.length - idx}</strong>`;
         const tags = document.createElement('div');
-        tags.innerHTML = `<span class='pill'>${distKm} km</span>`;
+        tags.innerHTML = `<span class="pill">${distKm} km</span>`;
         header.appendChild(title);
         header.appendChild(tags);
         card.appendChild(header);
         const metrics = document.createElement('div');
         metrics.innerHTML = `
-           <div class='metric'> Avg Speed: ${avgKmh} km/h</div>
-           <div class='metric'> Duration: ${mins}</div>
-           <div class='metric'> Points: ${pts.length}</div>
+           <div class="metric"> Avg Speed: ${avgKmh} km/h</div>
+           <div class="metric"> Duration: ${mins}</div>
+           <div class="metric"> Points: ${pts.length}</div>
            `;
         card.appendChild(metrics);
         const svgWrap = document.createElement('div');
@@ -118,6 +118,22 @@ function updateRuns(records) {
         }
         svgWrap.appendChild(svg);
         card.appendChild(svgWrap);
+
+        let pressTimer;
+        card.addEventListener('touchstart', (e) => {
+            pressTimer = setTimeout(() => {
+                if (window.jsBridge && window.jsBridge.deleteActivity) {
+                    window.jsBridge.deleteActivity(r.id);
+                }
+            }, 1000);
+        });
+        card.addEventListener('touchend', (e) => {
+            clearTimeout(pressTimer);
+        });
+        card.addEventListener('touchmove', (e) => {
+            clearTimeout(pressTimer);
+        });
+
         host.appendChild(card);
     })
 }
